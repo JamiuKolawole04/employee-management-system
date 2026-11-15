@@ -1,5 +1,6 @@
 package com.jay.employee_management_system_backend_core.controller;
 
+import com.jay.employee_management_system_backend_core.dto.CreateEmployeeRequest;
 import com.jay.employee_management_system_backend_core.dto.EmployeeDto;
 import com.jay.employee_management_system_backend_core.service.EmployeeService;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,8 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @PostMapping
-    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
-        EmployeeDto savedEmployee = employeeService.createEmployee(employeeDto);
+    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody CreateEmployeeRequest createEmployeeRequest) {
+        EmployeeDto savedEmployee = employeeService.createEmployee(createEmployeeRequest);
 
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
